@@ -1,0 +1,2 @@
+# testDiviseOmniauth
+test Divise Omniauth
