@@ -1,0 +1,2 @@
+module PubliccHelper
+end

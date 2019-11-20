@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TestDevice</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    
+    <!-- <link rel="stylesheet" href="navv.scss"> -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  
+    <!-- <script src="/nav.js"></script> -->
+  </head>
+
+  <body>
+
+
+
+      <nav class="navbar navbar-expand-lg navbar-light bg-info">
+          <a class="navbar-brand" href="#">Navbar w/ text</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Features</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="<%=new_client_registration_path%>">Connexion</a>
+              </li>
+
+                <% if client_signed_in? %>
+                  <li class="nav-item">
+                    <%= link_to "Deconnexion Client",destroy_client_session_path, class: "nav-link", method: "delete"%>
+                  </li>
+
+                  <% elsif prestataire_signed_in? %>
+                    <li class="nav-item">
+                      <%= link_to "Deconnexion Client",destroy_prestataire_session_path, class: "nav-link", method: "delete"%>
+                    </li>
+                <% end %>
+                
+
+            </ul>
+            <span class="navbar-text">
+              CCSPA
+            </span>
+          </div>
+        </nav>
+
+    <%= yield %>
+
+
+
+
+
+  </body>
+ 
+</html>
